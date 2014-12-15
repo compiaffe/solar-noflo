@@ -1,0 +1,6 @@
+'http://anna:secret@127.0.0.1:5984/hello_world' -> URL  DBCreate(couchdb/CreateDatabaseIfNoneExists)
+DBCreate() URL -> URL DocWriter(couchdb/WriteDocument)
+DocWriter() OUT -> IN ConsoleLogger(Output)
+DocWriter() LOG -> IN ConsoleLogger(Output)
+Txt2Obj() OUT -> IN DocWriter(couchdb/WriteDocument)
+'{"source": "from noflo", "how_great": "quite a wonderful" }' -> IN Txt2Obj(ParseJson)

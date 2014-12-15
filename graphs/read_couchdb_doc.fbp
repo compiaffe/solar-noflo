@@ -1,0 +1,7 @@
+Read(filesystem/ReadFile) OUT -> URL  dbCreate(couchdb/CreateDatabaseIfNoneExists)
+dbCreate() URL -> URL DocReader(couchdb/ReadDocument)
+DocReader() OUT -> IN ConsoleLogger(Output)
+DocReader() LOG -> IN ConsoleLogger(Output)
+'database_address.txt' -> IN Read
+'ba5016c9f4d9fb8eb0c8220e21000cd5' -> IN DocReader(couchdb/ReadDocument)
+
