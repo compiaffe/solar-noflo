@@ -7,6 +7,7 @@
     "noflo-couchdb": "^1.0.1",
     "noflo-filesystem": "^1.0.6",
     "noflo-math": "0.0.6",
+    "noflo-nodejs": "0.0.6",
     "noflo-strings": "^0.1.9",
     "noflo-yaml": "0.0.14"
   },
@@ -14,5 +15,13 @@
     "type": "git",
     "url": "git://github.com/username/repository.git"
   },
-  "readme": "blabla"
+  "readme": "blabla",
+  "noflo": {
+    "graphs": {
+      "GenCouchDBViewRequest": "graphs/generate_view_Request.fbp"
+    },
+    "components": {
+      "GenViewRequest": "components/generate_couchDB_request.coffee"
+    }
+  }
 }
