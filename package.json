@@ -11,17 +11,28 @@
     "noflo-strings": "^0.1.9",
     "noflo-yaml": "0.0.14"
   },
+  "devDependencies": {
+    "nodeunit": ">=0.6.0",
+    "coffeelint": "*",
+    "coffee-script": "1.8.x"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/username/repository.git"
+    "url": "git@github.com:compiaffe/solar-noflo.git"
+  },
+  "engines": {
+    "node": ">=0.6.0"
   },
   "readme": "blabla",
   "noflo": {
     "graphs": {
-      "GenCouchDBViewRequest": "graphs/generate_view_Request.fbp"
+      "GenCouchDBViewRequest": "graphs/generate_view_Request.fbp",
+      "ViewRequests": "graphs/ViewRequests.fbp"
     },
     "components": {
-      "GenViewRequest": "components/generate_couchDB_request.coffee"
+      "GenViewRequest": "components/GenerateCouchDBRequest.coffee",
+      "Forward": "components/Forwarder.coffee"
+
     }
   }
 }

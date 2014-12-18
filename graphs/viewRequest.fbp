@@ -1,0 +1,24 @@
+# Check if the DB exists 
+ReadURL(filesystem/ReadFile) OUT -> URL dbCreate(couchdb/CreateDatabaseIfNoneExists)
+#then pass the URL to the ViewReader
+dbCreate() URL -> URL ViewReader(couchdb/ReadViewDocuments)
+
+# for debugging print all output to the console
+ViewReader() OUT -> IN ConsoleLogger(Output)
+ViewReader() LOG -> IN ConsoleLogger(Output)
+
+#input the ID
+# Start off the graph by sending a filename to the file reader
+'database_address.txt' -> IN ReadURL()
+Txt2Obj(ParseJson) OUT -> IN ConsoleLogger(Output)
+Txt2Obj() OUT -> IN Forwarder(Forward) OUT -> IN ViewReader()
+#'{ "designDocID": "planets", "viewName": "unread_events_per_planet", "params": { "startkey": [ "ff423cc506d82413773748e9670014e2",[2014,12,15,0,0]], "endkey": [ "ff423cc506d82413773748e9670014e2",{}]  } }' -> IN Txt2Obj()
+GetView(GenViewRequest) OUT -> IN Txt2Obj()
+
+'planets' -> DDOCID GetView()
+'unread_events_per_planet' -> VIEWNAME GetView()
+'ff423cc506d82413773748e9670014e2' -> STARTKEY GetView()
+'' -> ENDKEY GetView()
+'' -> STARTTIME GetView()
+'' -> ENDTIME GetView()
+
